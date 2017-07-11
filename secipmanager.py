@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import netifaces as ni
 import os
 import getopt
