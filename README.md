@@ -1,7 +1,7 @@
 # Secondary IP Manager Tool (for Linu
 secipmanager
 
-This tool allow you to configure (add or delete) secundary IP's on your Kali Box.
+This tool allow you to configure (add or delete) multiples secondary IP's on your Linux Box.
 
 # Requeriments
 
