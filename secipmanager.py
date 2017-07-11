@@ -13,7 +13,7 @@ IPRange = ""
 def usage():
     print "Secondary IP Manager Tool by ~EnGeLs~"
     print "it works only for /24 networks"
-    print "Usage: secipmanager.py -r numberFrom-To -i eth0" #-p port"
+    print "Usage: secipmanager.py -r numberFrom-To -i eth0" 
     
     print "-r --range - expect a range between 1 and 254 for ip address configuration"
     print "-i --interface - interface to configure IP Addresses"
@@ -30,10 +30,8 @@ def getIPfromInterface(interface):
     global ip 
     
     ni.ifaddresses(interface)
-
     ip = ni.ifaddresses(interface)[2][0]['addr']
     ip = ".".join(ip.split('.')[0:-1])
-    
     mask = ni.ifaddresses(interface)[2][0]['netmask']
     netmaskConvert(mask)
 
@@ -47,7 +45,6 @@ def asignRangeIP(start,end):
     
     for num in range(start,end):
         iptoAdd = ip + '.' + str(num)
-        
         if not delete:
             os.system("ip address add "+ iptoAdd + netmask + ' dev '+ nic)
         else:
@@ -87,7 +84,6 @@ def main():
     end = int(IPRange.split('-')[1]) + 1 
     
     getIPfromInterface(nic)
-    
     asignRangeIP(start, end)
                  
 if __name__ == '__main__':
